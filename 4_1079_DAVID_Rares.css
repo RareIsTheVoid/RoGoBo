@@ -9,17 +9,18 @@
 }
 
 body {
-    background-color: #FFECB3;
+    background-color: #DCE1E3;
     font-family: Poppins;
     color: #540a0a;
     text-align: center;
 }
 
 #title {
-    font-family: Poppins-Bold;
+    font-family: Poppins-Bold, 'Trebuchet MS';
     font-size: 200px;
     margin: 0px;
 }
+
 
 #description {
     margin-top: 5em;
@@ -29,8 +30,8 @@ body {
 #getStartedButton {
     margin-top: 3em;
     background-color: #540a0a;
-    color: #FFECB3;
-    font-family: Poppinss;
+    color: #DCE1E3;
+    font-family: Poppins;
 }
 
 footer {
