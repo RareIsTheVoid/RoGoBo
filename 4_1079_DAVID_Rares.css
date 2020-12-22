@@ -43,3 +43,67 @@ footer {
     padding-right: 1%;
     padding-bottom: 5px;;
 }
+
+#canvasContainer, #editButtons {
+    display: none;
+    width: 966px;
+    margin: 0 auto;
+}
+
+#canvas {
+    border: 3px solid #540a0a;
+    margin-top: 5px;
+}
+
+#editButtons{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#editButtons > div, label {
+    flex: 1;
+    height: 50px;
+    margin: 5px;
+    color: #DCE1E3;
+    font-family: Poppins;
+}
+
+#editButtons > label{
+    margin-left: 0;
+}
+
+#editButtons > div:last-child{
+    margin-right: 0;
+}
+
+#loadButton{
+    background-color: #440808;
+}
+
+#selectButton{
+    background-color: #540a0a;
+}
+
+#cropButton{
+    background-color: #5b0b0b;
+}
+
+#filterButton{
+    background-color: #720d0d;
+}
+
+#scaleButton{
+    background-color:#891010;
+}
+
+#textButton{
+    background-color: #a01313;
+}
+
+#histogramButton{
+    background-color: #b71515;
+}
+
+#eraseButton{
+    background-color: #cd1818;
+}
