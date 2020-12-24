@@ -77,33 +77,45 @@ footer {
 }
 
 #loadButton{
+    background-color: #2e0505;
+}
+
+#saveButton{
     background-color: #440808;
+    opacity: 0.2;
 }
 
 #selectButton{
     background-color: #540a0a;
+    opacity: 0.2;
 }
 
 #cropButton{
     background-color: #5b0b0b;
+    opacity: 0.2;
 }
 
 #filterButton{
     background-color: #720d0d;
+    opacity: 0.2;
 }
 
 #scaleButton{
     background-color:#891010;
+    opacity: 0.2;
 }
 
 #textButton{
     background-color: #a01313;
+    opacity: 0.2;
 }
 
 #histogramButton{
     background-color: #b71515;
+    opacity: 0.2;
 }
 
 #eraseButton{
     background-color: #cd1818;
+    opacity: 0.2;
 }
