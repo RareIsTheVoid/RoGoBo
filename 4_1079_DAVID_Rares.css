@@ -95,27 +95,37 @@ footer {
     opacity: 0.2;
 }
 
-#filterButton{
+#grayscaleButton{
     background-color: #720d0d;
     opacity: 0.2;
 }
 
-#scaleButton{
-    background-color:#891010;
+#sepiaButton{
+    background-color: #891010;
     opacity: 0.2;
 }
 
-#textButton{
+#invertColorsButton{
     background-color: #a01313;
     opacity: 0.2;
 }
 
-#histogramButton{
+#scaleButton{
     background-color: #b71515;
     opacity: 0.2;
 }
 
-#eraseButton{
+#textButton{
     background-color: #cd1818;
+    opacity: 0.2;
+}
+
+#histogramButton{
+    background-color: #e41b1b;
+    opacity: 0.2;
+}
+
+#eraseButton{
+    background-color: #e73232;
     opacity: 0.2;
 }
