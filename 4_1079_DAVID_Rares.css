@@ -120,12 +120,37 @@ footer {
     opacity: 0.2;
 }
 
-#histogramButton{
+#eraseButton{
     background-color: #e41b1b;
     opacity: 0.2;
 }
 
-#eraseButton{
-    background-color: #e73232;
-    opacity: 0.2;
+#textPopUp {
+    background-color: #DCE1E3;
+    border: 3px solid #540a0a;
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    display: none;
+    padding: 10px;
+}
+
+#textPopUp label {
+    color: #540a0a;
+}
+
+#scalePopUp {
+    background-color: #DCE1E3;
+    border: 3px solid #540a0a;
+    z-index: 9;
+    top: 50%;
+    left: 60%;
+    position: absolute;
+    display: none;
+    padding: 10px;
+}
+
+#scalePopUp label {
+    color: #540a0a;
 }
