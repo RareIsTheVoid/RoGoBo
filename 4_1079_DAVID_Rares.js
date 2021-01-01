@@ -15,14 +15,31 @@ window.onload = function () {
     //============================================================================================================================ transition to second screen
     document.getElementById("getStartedButton").onclick = () => {
 
+        document.getElementById("title").style.animation = "titleMove 3s";
+        document.getElementById("title").style.animationFillMode = "forwards";
         document.getElementById("title").style.fontSize = "50px";
-        document.getElementById("description").remove()
+        document.getElementById("description").style.animation = "disappear 3s";
+        document.getElementById("description").style.display='none';
         let getStartedButton = document.getElementById("getStartedButton");
+        getStartedButton.style.animation = "disappear 3s";
         getStartedButton.remove();
+        document.getElementById("authorLink").style.animation = "disappear 3s";
         document.getElementById("authorLink").remove();
         document.getElementById("canvasContainer").style.display = "block";
+        document.getElementById("canvasContainer").style.animation = "appear 3s";
         document.getElementById("editButtons").style.display = "flex";
         document.getElementById("editButtons").style.flexDirection = "row";
+        document.getElementById("editButtons").style.animation = "appear 3s";
+
+        document.getElementById("saveButton").style.pointerEvents = 'none';
+        document.getElementById("selectButton").style.pointerEvents = 'none';
+        document.getElementById("cropButton").style.pointerEvents = 'none';
+        document.getElementById("grayscaleButton").style.pointerEvents = 'none';
+        document.getElementById("sepiaButton").style.pointerEvents = 'none';
+        document.getElementById("invertColorsButton").style.pointerEvents = 'none';
+        document.getElementById("scaleButton").style.pointerEvents = 'none';
+        document.getElementById("textButton").style.pointerEvents = 'none';
+        document.getElementById("eraseButton").style.pointerEvents = 'none';
 
         ctx.fillStyle = "white"
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -63,13 +80,16 @@ window.onload = function () {
         newImage(URL.createObjectURL(this.files[0]));
 
         document.getElementById("loadButton").style.opacity = 0.2;
-        document.getElementById("saveButton").style.opacity = 1;
-        document.getElementById("selectButton").style.opacity = 1;
+        document.getElementById("loadButton").style.pointerEvents = 'none';
 
+        document.getElementById("saveButton").style.opacity = 1;
+        document.getElementById("saveButton").style.pointerEvents = 'auto';
+        document.getElementById("selectButton").style.opacity = 1;
+        document.getElementById("selectButton").style.pointerEvents = 'auto';
         document.getElementById("scaleButton").style.opacity = 1;
+        document.getElementById("scaleButton").style.pointerEvents = 'auto';
         document.getElementById("textButton").style.opacity = 1;
-        //document.getElementById("eraseButton").style.opacity=1;
-        input.type = '';
+        document.getElementById("textButton").style.pointerEvents = 'auto';
     };
 
 
@@ -208,6 +228,24 @@ window.onload = function () {
         canvas.removeEventListener('mousedown', mouseDown);
         canvas.removeEventListener('mouseup', mouseUp);
         canvas.removeEventListener('mousemove', mouseMove);
+
+        document.getElementById("cropButton").style.opacity = 0.2;
+        document.getElementById("cropButton").style.pointerEvents = 'none';
+        document.getElementById("grayscaleButton").style.opacity = 0.2;
+        document.getElementById("grayscaleButton").style.pointerEvents = 'none';
+        document.getElementById("sepiaButton").style.opacity = 0.2;
+        document.getElementById("sepiaButton").style.pointerEvents = 'none';
+        document.getElementById("invertColorsButton").style.opacity = 0.2;
+        document.getElementById("invertColorsButton").style.pointerEvents = 'none';
+        document.getElementById("eraseButton").style.opacity = 0.2;
+        document.getElementById("eraseButton").style.pointerEvents = 'none';
+
+        document.getElementById("saveButton").style.opacity = 1;
+        document.getElementById("saveButton").style.pointerEvents = 'auto';
+        document.getElementById("scaleButton").style.opacity = 1;
+        document.getElementById("scaleButton").style.pointerEvents = 'auto';
+        document.getElementById("textButton").style.opacity = 1;
+        document.getElementById("textButton").style.pointerEvents = 'auto';
     }
 
     document.getElementById("selectButton").onclick = function (e) {
@@ -216,10 +254,23 @@ window.onload = function () {
             unselect();
         }
         else {
-            document.getElementById("cropButton").style.opacity=1;
-            document.getElementById("grayscaleButton").style.opacity=1;
-            document.getElementById("sepiaButton").style.opacity=1;
-            document.getElementById("invertColorsButton").style.opacity=1;
+            document.getElementById("cropButton").style.opacity = 1;
+            document.getElementById("cropButton").style.pointerEvents = 'auto';
+            document.getElementById("grayscaleButton").style.opacity = 1;
+            document.getElementById("grayscaleButton").style.pointerEvents = 'auto';
+            document.getElementById("sepiaButton").style.opacity = 1;
+            document.getElementById("sepiaButton").style.pointerEvents = 'auto';
+            document.getElementById("invertColorsButton").style.opacity = 1;
+            document.getElementById("invertColorsButton").style.pointerEvents = 'auto';
+            document.getElementById("eraseButton").style.opacity = 1;
+            document.getElementById("eraseButton").style.pointerEvents = 'auto';
+
+            document.getElementById("saveButton").style.opacity = 0.2;
+            document.getElementById("saveButton").style.pointerEvents = 'none';
+            document.getElementById("scaleButton").style.opacity = 0.2;
+            document.getElementById("scaleButton").style.pointerEvents = 'none';
+            document.getElementById("textButton").style.opacity = 0.2;
+            document.getElementById("textButton").style.pointerEvents = 'none';
 
             imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             currentlySelecting = true;
