@@ -18,15 +18,20 @@ window.onload = function () {
         document.getElementById("title").style.animation = "titleMove 3s";
         document.getElementById("title").style.animationFillMode = "forwards";
         document.getElementById("title").style.fontSize = "50px";
+        
         document.getElementById("description").style.animation = "disappear 3s";
         document.getElementById("description").style.display='none';
+
         let getStartedButton = document.getElementById("getStartedButton");
         getStartedButton.style.animation = "disappear 3s";
         getStartedButton.remove();
+
         document.getElementById("authorLink").style.animation = "disappear 3s";
         document.getElementById("authorLink").remove();
+
         document.getElementById("canvasContainer").style.display = "block";
         document.getElementById("canvasContainer").style.animation = "appear 3s";
+
         document.getElementById("editButtons").style.display = "flex";
         document.getElementById("editButtons").style.flexDirection = "row";
         document.getElementById("editButtons").style.animation = "appear 3s";
@@ -158,10 +163,10 @@ window.onload = function () {
 
 
     function mouseMove(e) {
-        var previousHandle = currentHandle;
+        let previousHandle = currentHandle;
         if (!drag) currentHandle = getHandle(point(e.pageX - this.offsetLeft, e.pageY - this.offsetTop));
         if (currentHandle && drag) {
-            var mousePos = point(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+            let mousePos = point(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
             switch (currentHandle) {
                 case 'top':
                     selectedRect.h += selectedRect.y - mousePos.y;
@@ -196,10 +201,10 @@ window.onload = function () {
         ctx.rect(selectedRect.x, selectedRect.y, selectedRect.w, selectedRect.h);
         ctx.stroke();
 
-        var posHandle1 = point(0, 0);
-        var posHandle2 = point(0, 0);
-        var posHandle3 = point(0, 0);
-        var posHandle4 = point(0, 0);
+        let posHandle1 = point(0, 0);
+        let posHandle2 = point(0, 0);
+        let posHandle3 = point(0, 0);
+        let posHandle4 = point(0, 0);
 
 
         posHandle1.x = selectedRect.x + selectedRect.w / 2;
@@ -287,8 +292,8 @@ window.onload = function () {
 
     //============================================================================================================================ crop button
     function convertImgdataToImage(imagedata) {
-        var canvas = document.createElement('canvas');
-        var ctx = canvas.getContext('2d');
+        let canvas = document.createElement('canvas');
+        let ctx = canvas.getContext('2d');
         canvas.width = imagedata.width;
         canvas.height = imagedata.height;
         ctx.putImageData(imagedata, 0, 0);
@@ -368,7 +373,7 @@ window.onload = function () {
 
     //============================================================================================================================ text button
     document.getElementById("textButton").onclick = function () {
-        document.getElementById("textPopUp").style.display = "block";
+        document.getElementById("textPopUp").style.display = "block"
     }
 
     document.getElementById("insertTextButton").onclick = function () {

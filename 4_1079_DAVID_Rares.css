@@ -90,6 +90,24 @@ footer {
     transition: background-color 0.2s, color 0.2s;
 }
 
+input[type="button"] {
+    height: 50px;
+    padding: 0px 20px;
+    color: #DCE1E3;
+    font-family: Poppins;
+    text-align: center;
+    background-color: #540a0a;
+    border-radius: 20px;
+    border: 2px solid #540a0a;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #DCE1E3;
+    color: #540a0a;
+}
+
 #editButtons > div:hover, label:hover {
     background-color: #DCE1E3;
     color: #540a0a;
@@ -109,47 +127,38 @@ footer {
 }
 
 #saveButton{
-    background-color: #440808;
     opacity: 0.2;
 }
 
 #selectButton{
-    background-color: #540a0a;
     opacity: 0.2;
 }
 
 #cropButton{
-    background-color: #5b0b0b;
     opacity: 0.2;
 }
 
 #grayscaleButton{
-    background-color: #720d0d;
     opacity: 0.2;
 }
 
 #sepiaButton{
-    background-color: #891010;
     opacity: 0.2;
 }
 
 #invertColorsButton{
-    background-color: #a01313;
     opacity: 0.2;
 }
 
 #scaleButton{
-    background-color: #b71515;
     opacity: 0.2;
 }
 
 #textButton{
-    background-color: #cd1818;
     opacity: 0.2;
 }
 
 #eraseButton{
-    background-color: #e41b1b;
     opacity: 0.2;
 }
 
@@ -157,7 +166,7 @@ footer {
     background-color: #DCE1E3;
     border: 3px solid #540a0a;
     z-index: 9;
-    top: 50%;
+    top: 20%;
     left: 50%;
     position: absolute;
     display: none;
@@ -172,7 +181,7 @@ footer {
     background-color: #DCE1E3;
     border: 3px solid #540a0a;
     z-index: 9;
-    top: 50%;
+    top: 40%;
     left: 60%;
     position: absolute;
     display: none;
@@ -195,10 +204,8 @@ footer {
     100% {
         font-size: 50px;
         text-shadow: 1px 1px #2e0505, 1.5px 1.5px #2e0505,
-        2px 2px #2e0505, 2.5px 2.5px #2e0505,
-        3px 3px #2e0505;}
+        2px 2px #2e0505;}
 }
-
 
 @keyframes appear {
     0% {
@@ -211,4 +218,9 @@ footer {
 
 button:hover {
     cursor: pointer;
+}
+
+form label {
+    background-color: #DCE1E3;
+    border: 0px;
 }
