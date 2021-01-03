@@ -125,7 +125,7 @@ window.onload = function () {
     };
 
     let littleSquareSide = 10;
-    let currentHandle = false, drag = false, shiftDrag = false;
+    let currentLittleSquare = false, drag = false, shiftDrag = false;
 
     function point(x, y) {
         return {
@@ -134,60 +134,60 @@ window.onload = function () {
         };
     }
 
-    function dist(p1, p2) {
+    function distance(p1, p2) {
         return Math.sqrt((p2.x - p1.x) * (p2.x - p1.x) + (p2.y - p1.y) * (p2.y - p1.y));
     }
 
     function getHandle(mouse) {
-        if (dist(mouse, point(selectedRect.x + selectedRect.w / 2, selectedRect.y)) <= littleSquareSide)
+        if (distance(mouse, point(selectedRect.x + selectedRect.w / 2, selectedRect.y)) <= littleSquareSide)
             return 'top';
-        if (dist(mouse, point(selectedRect.x, selectedRect.y + selectedRect.h / 2)) <= littleSquareSide)
+        if (distance(mouse, point(selectedRect.x, selectedRect.y + selectedRect.h / 2)) <= littleSquareSide)
             return 'left';
-        if (dist(mouse, point(selectedRect.x + selectedRect.w / 2, selectedRect.y + selectedRect.h)) <= littleSquareSide)
+        if (distance(mouse, point(selectedRect.x + selectedRect.w / 2, selectedRect.y + selectedRect.h)) <= littleSquareSide)
             return 'bottom';
-        if (dist(mouse, point(selectedRect.x + selectedRect.w, selectedRect.y + selectedRect.h / 2)) <= littleSquareSide)
+        if (distance(mouse, point(selectedRect.x + selectedRect.w, selectedRect.y + selectedRect.h / 2)) <= littleSquareSide)
             return 'right';
         return false;
     }
 
     function mouseDown(e) {
-        if (currentHandle) drag = true;
+        if (currentLittleSquare) drag = true;
         drawSelection();
     }
 
     function mouseUp() {
         drag = false;
-        currentHandle = false;
+        currentLittleSquare = false;
         drawSelection();
     }
 
 
     function mouseMove(e) {
-        let previousHandle = currentHandle;
-        if (!drag) currentHandle = getHandle(point(e.pageX - this.offsetLeft, e.pageY - this.offsetTop));
-        if (currentHandle && drag) {
-            let mousePos = point(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-            switch (currentHandle) {
+        let previousLittleSquare = currentLittleSquare;
+        if (!drag) currentLittleSquare = getHandle(point(e.pageX - this.offsetLeft, e.pageY - this.offsetTop));
+        if (currentLittleSquare && drag) {
+            let mousePosition = point(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+            switch (currentLittleSquare) {
                 case 'top':
-                    selectedRect.h += selectedRect.y - mousePos.y;
-                    selectedRect.y = mousePos.y;
+                    selectedRect.h += selectedRect.y - mousePosition.y;
+                    selectedRect.y = mousePosition.y;
                     break;
 
                 case 'left':
-                    selectedRect.w += selectedRect.x - mousePos.x;
-                    selectedRect.x = mousePos.x;
+                    selectedRect.w += selectedRect.x - mousePosition.x;
+                    selectedRect.x = mousePosition.x;
                     break;
 
                 case 'bottom':
-                    selectedRect.h = mousePos.y - selectedRect.y;
+                    selectedRect.h = mousePosition.y - selectedRect.y;
                     break;
 
                 case 'right':
-                    selectedRect.w = mousePos.x - selectedRect.x;
+                    selectedRect.w = mousePosition.x - selectedRect.x;
                     break;
             }
         }
-        if (drag || currentHandle != previousHandle) drawSelection();
+        if (drag || currentLittleSquare != previousLittleSquare) drawSelection();
     }
 
     function drawSelection() {
@@ -201,31 +201,31 @@ window.onload = function () {
         ctx.rect(selectedRect.x, selectedRect.y, selectedRect.w, selectedRect.h);
         ctx.stroke();
 
-        let posHandle1 = point(0, 0);
-        let posHandle2 = point(0, 0);
-        let posHandle3 = point(0, 0);
-        let posHandle4 = point(0, 0);
+        let littleSquare1 = point(0, 0);
+        let littleSquare2 = point(0, 0);
+        let littleSquare3 = point(0, 0);
+        let littleSquare4 = point(0, 0);
 
 
-        posHandle1.x = selectedRect.x + selectedRect.w / 2;
-        posHandle1.y = selectedRect.y;
+        littleSquare1.x = selectedRect.x + selectedRect.w / 2;
+        littleSquare1.y = selectedRect.y;
 
-        posHandle2.x = selectedRect.x;
-        posHandle2.y = selectedRect.y + selectedRect.h / 2;
+        littleSquare2.x = selectedRect.x;
+        littleSquare2.y = selectedRect.y + selectedRect.h / 2;
 
-        posHandle3.x = selectedRect.x + selectedRect.w / 2;
-        posHandle3.y = selectedRect.y + selectedRect.h;
+        littleSquare3.x = selectedRect.x + selectedRect.w / 2;
+        littleSquare3.y = selectedRect.y + selectedRect.h;
 
-        posHandle4.x = selectedRect.x + selectedRect.w;
-        posHandle4.y = selectedRect.y + selectedRect.h / 2;
+        littleSquare4.x = selectedRect.x + selectedRect.w;
+        littleSquare4.y = selectedRect.y + selectedRect.h / 2;
 
         ctx.beginPath();
 
         ctx.fillStyle = "#fce8e8"
-        ctx.fillRect(posHandle1.x - littleSquareSide / 2, posHandle1.y - littleSquareSide / 2, littleSquareSide, littleSquareSide);
-        ctx.fillRect(posHandle2.x - littleSquareSide / 2, posHandle2.y - littleSquareSide / 2, littleSquareSide, littleSquareSide);
-        ctx.fillRect(posHandle3.x - littleSquareSide / 2, posHandle3.y - littleSquareSide / 2, littleSquareSide, littleSquareSide);
-        ctx.fillRect(posHandle4.x - littleSquareSide / 2, posHandle4.y - littleSquareSide / 2, littleSquareSide, littleSquareSide);
+        ctx.fillRect(littleSquare1.x - littleSquareSide / 2, littleSquare1.y - littleSquareSide / 2, littleSquareSide, littleSquareSide);
+        ctx.fillRect(littleSquare2.x - littleSquareSide / 2, littleSquare2.y - littleSquareSide / 2, littleSquareSide, littleSquareSide);
+        ctx.fillRect(littleSquare3.x - littleSquareSide / 2, littleSquare3.y - littleSquareSide / 2, littleSquareSide, littleSquareSide);
+        ctx.fillRect(littleSquare4.x - littleSquareSide / 2, littleSquare4.y - littleSquareSide / 2, littleSquareSide, littleSquareSide);
     }
 
     function unselect() {
